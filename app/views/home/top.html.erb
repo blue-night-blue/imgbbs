@@ -1,0 +1,98 @@
+
+
+<% if flash[:notice] %>
+    <div class="flash">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+
+<div class="explanation">
+    <ol>
+        <li>名前を無記名にした場合、「名無し」という名前で投稿されます</li>
+        <li>パスワードを設定しておくと、投稿したものを編集・削除できます</li>
+    </ol>
+</div>
+
+
+<%= form_tag({ 
+    :controller => 'home', 
+    :action => 'create' ,
+    :method => 'post' ,
+    :multipart => 'true'
+    }) do %>
+    <div class="submit">
+        <p>
+            name
+            <input class="name" name="name" type="text" value="">
+        </p>
+
+        <p>
+            image
+            <input name="image" type="file">
+        </p>
+        
+        <p>
+            comment
+            <textarea class="content" name="content"></textarea>
+        </p>
+
+        <p>
+            password
+            <input class="password" name="password" type="password">
+        </p>
+
+        <p><input class="submit_button" type="submit" value="post"></p>
+    </div>
+<% end %>
+
+<%= form_tag({ :controller => 'home', :action => 'times_post' },{ :method => :post}) do %>
+    <div class="submit_times">
+        <input class="times" name="times" type="text" value="">
+        <input class="submit_button_times" type="submit" value="post">
+    </div>
+<% end %>
+
+
+
+
+<h2>page:1</h2>
+
+<div class="index">
+    
+    <% @post.each do |post| %>
+        <div class="post">
+            <div class="post_number">number:<%= post.post_id %></div>
+            <div class="post_name">name:<%= post.name %></div>
+            <div class="post_date">date:<%= post.created_at.strftime('%Y/%m/%d') %></div>
+            <div class="post_content"><%= simple_format(post.content) %></div>
+            <div class="edit_and_delete">
+                <%= link_to("edit",controller: "home", action: "edit", id: post.id) %>
+                 / 
+                <%= link_to("delete",controller: "home", action: "delete", id: post.id) %>
+            </div>
+        </div>
+    <% end %>
+
+</div>
+
+<% if Post2.count>0 %>
+
+    <div class="navi">
+        <% if Post2.last.post_id>10 %>
+            <%= link_to("next","/page/2") %>
+        <% end %>
+    </div>
+
+    <div class="navi2">
+        <span>1</span>
+
+        <% if @pages>=2 %>
+            <% for i2 in 2..@pages %>
+                <%= link_to("#{i2}","/page/#{i2}") %>
+            <% end %> 
+        <% end %>
+
+    </div>
+
+<% end %>

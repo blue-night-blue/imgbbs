@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+ 
+
+/* all */
+
+:root {
+    --main-bg-color: #008;
+    --main-text-color: #ccc;
+  }
+
+body{
+    background-color: var(--main-bg-color);
+    color:var(--main-text-color);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    width:300px;
+}
+
+a:link,
+a:visited{
+    color:var(--main-text-color);
+}
+
+h1{
+    margin-top: 50px;
+}
+
+
+
+
+/* form */
+
+.submit_times{
+    margin-bottom:5em;
+}
+
+input,textarea{
+    display: block;
+    background-color: var(--main-bg-color);
+    border:var(--main-text-color) solid 1px;
+    color:var(--main-text-color);
+    border-radius: 5px;
+}
+
+.submit_button{
+    padding: 10px 30px;
+    font-size: 20px;
+}
+
+.flash {
+    color: var(--main-bg-color);
+    background:var(--main-text-color);
+    position: absolute;
+    top: 5px;
+    padding: 5px;
+    width:300px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+
+
+
+
+
+/* top */
+ol{
+    padding-left: 1em;
+}
+
+li{
+    margin-bottom:1em;
+}
+
+.name,
+.content,
+.password{
+    width:100%;
+}
+
+
+.post{
+    width:300px;
+    border-bottom:solid 1px var(--main-text-color);
+}
+
+.post_name,
+.post_date{
+    margin:0;
+    padding:0;
+}
+
+.post_content{
+    margin:1em 0;
+}
+
+.edit_and_delete{
+    text-align: right;
+}
+
+.times{
+    border:none;
+}
+
+.submit_button_times{
+    border:none;
+    color:var(--main-bg-color);
+}
+
+textarea{
+    height:300px;
+}
+
+
+
+
+
+/* top,page */
+.index{
+    margin-bottom:5em;
+}
+
+.navi2 a,
+.navi2 span{
+    display: inline-block;
+    margin-right: 1em;
+}
+
