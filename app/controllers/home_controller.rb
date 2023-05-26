@@ -97,6 +97,11 @@ class HomeController < ApplicationController
 
     if @post.authenticate(params[:password])
       @post.destroy
+      
+      if File.exist?("public/post_images/#{@image_name}")
+        File.delete("public/post_images/#{@image_name}")
+      end
+
       flash[:notice]="削除しました"
       redirect_to ("/")
     else
@@ -104,6 +109,7 @@ class HomeController < ApplicationController
       render ("home/delete")
     end
   end
+
 
 
 
