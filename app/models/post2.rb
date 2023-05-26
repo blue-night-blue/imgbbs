@@ -3,6 +3,10 @@ class Post2 < ApplicationRecord
     has_secure_password
 
     validates :content, {presence: true}
+
+
+
+
     
     #以下、Progate参考。インスタントメソッドを使いたい時に。
     #def user

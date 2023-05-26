@@ -40,18 +40,22 @@ class HomeController < ApplicationController
       @post.password = "uganda"
     end
     
-    if params[:image]
-      image_name="imgbbs"+format("%010d", @post.id)+".jpg"
-      image=params[:image]
-      File.binwrite("public/post_images/a.jpg",image.read)
+    if @post.save
+
+      if params[:image]
+        image_name="imgbbs"+format("%004d", @post.id)+".jpg"
+        image=params[:image]
+        File.binwrite("public/post_images/#{image_name}",image.read)
+      end
+
+      flash[:notice]="投稿しました"
+      redirect_to ("/")
+
     end
-    
-    @post.save
-    flash[:notice]="投稿しました"
-    redirect_to ("/")
     
   end
 
+  
 
 
   def edit

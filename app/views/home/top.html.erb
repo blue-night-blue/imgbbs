@@ -15,12 +15,7 @@
 </div>
 
 
-<%= form_tag({ 
-    :controller => 'home', 
-    :action => 'create' ,
-    :method => 'post' ,
-    :multipart => 'true'
-    }) do %>
+<%= form_tag("/home/create", {multipart: true}) do %>
     <div class="submit">
         <p>
             name
@@ -46,6 +41,10 @@
     </div>
 <% end %>
 
+
+
+
+
 <%= form_tag({ :controller => 'home', :action => 'times_post' },{ :method => :post}) do %>
     <div class="submit_times">
         <input class="times" name="times" type="text" value="">
@@ -65,6 +64,14 @@
             <div class="post_number">number:<%= post.post_id %></div>
             <div class="post_name">name:<%= post.name %></div>
             <div class="post_date">date:<%= post.created_at.strftime('%Y/%m/%d') %></div>
+            
+            <% image_name="imgbbs"+format("%004d", post.id)+".jpg" %>
+            <% if File.exist?("public/post_images/#{image_name}") %>
+                <div class="post_image">
+                    <img src="/post_images/<%= image_name %>" alt="<%= image_name %>">
+                </div>
+            <% end %>
+
             <div class="post_content"><%= simple_format(post.content) %></div>
             <div class="edit_and_delete">
                 <%= link_to("edit",controller: "home", action: "edit", id: post.id) %>

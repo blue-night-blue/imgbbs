@@ -46,9 +46,6 @@ h1{
 
 /* form */
 
-.submit_times{
-    margin-bottom:5em;
-}
 
 input,textarea{
     display: block;
@@ -58,9 +55,32 @@ input,textarea{
     border-radius: 5px;
 }
 
+.name,
+.content,
+.password{
+    width:100%;
+}
+
 .submit_button{
     padding: 10px 30px;
     font-size: 20px;
+}
+
+.submit_times{
+    margin-bottom:5em;
+}
+
+.times{
+    border:none;
+}
+
+.submit_button_times{
+    border:none;
+    color:var(--main-bg-color);
+}
+
+textarea{
+    height:300px;
 }
 
 .flash {
@@ -88,11 +108,21 @@ li{
     margin-bottom:1em;
 }
 
-.name,
-.content,
-.password{
-    width:100%;
+
+
+
+
+
+
+
+
+/* top,page */
+.index{
+    margin-bottom:5em;
 }
+
+
+
 
 
 .post{
@@ -106,6 +136,10 @@ li{
     padding:0;
 }
 
+.post_image img{
+    width:300px;
+}
+
 .post_content{
     margin:1em 0;
 }
@@ -114,31 +148,10 @@ li{
     text-align: right;
 }
 
-.times{
-    border:none;
-}
 
-.submit_button_times{
-    border:none;
-    color:var(--main-bg-color);
-}
-
-textarea{
-    height:300px;
-}
-
-
-
-
-
-/* top,page */
-.index{
-    margin-bottom:5em;
-}
 
 .navi2 a,
 .navi2 span{
     display: inline-block;
     margin-right: 1em;
 }
-
