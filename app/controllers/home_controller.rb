@@ -69,6 +69,13 @@ class HomeController < ApplicationController
 
     if @post.authenticate(params[:password])
       @post.save
+
+      if params[:image]
+        image_name="imgbbs"+format("%004d", @post.id)+".jpg"
+        image=params[:image]
+        File.binwrite("public/post_images/#{image_name}",image.read)
+      end
+
       flash[:notice]="修正しました"
       redirect_to ("/")
     else

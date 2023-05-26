@@ -6,12 +6,23 @@
     </div> 
 <% end %>
 
-<%= form_tag("/#{@post.id}/update")  do %>
+<%= form_tag("/#{@post.id}/update", {multipart: true})  do %>
     <div class="submit">
         <p>
             name
             <input class="name" name="name" type="text" value="<%= @post.name %>">
         </p>
+
+        <p>
+            image
+            <input name="image" type="file">
+            <% image_name="imgbbs"+format("%004d", @post.id)+".jpg" %>
+            <% if File.exist?("public/post_images/#{image_name}") %>
+                <img src="/post_images/<%= image_name %>" alt="<%= image_name %>">
+            <% end %>
+        </p>
+
+        
 
         <p>
             comment
