@@ -1,0 +1,4 @@
+<% if @comment.image.attached? %>
+  <p><%= image_tag @comment.image %></p>
+  <p><%= @comment.content %></p>
+<% end %>

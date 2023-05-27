@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -22,12 +23,6 @@ Rails.application.routes.draw do
   
   
   
-
-
-
-
-  get "test1" => 'home#test1'
-  post "update2/:id" => 'home#test2'
 
 
 
