@@ -1,5 +1,7 @@
 <%= form_with model: @comment, local: true  do |form| %>
-  <%= form.text_area :content %><br>
+<div class="submit">
+  <%= form.text_area :content,class:"content" %><br>
   <%= form.file_field :image %><br>
-  <%= form.submit %>
+  <%= form.submit value:"posuto" %>
+</div>  
 <% end %>
