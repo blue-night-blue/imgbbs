@@ -15,7 +15,23 @@
 </div>
 
 
-<%= form_tag("/home/create", {multipart: true}) do %>
+
+<%= form_with url:"/home/create", local: true  do |form| %>
+  <p>name<%= form.text_field :name %></p>
+  <p>image<%= form.file_field :image %></p>
+  <p>comment<%= form.text_area :name %></p>
+  <p>password<%= form.text_field :password %></p>
+  <%= form.submit value:"post" %>
+<% end %>
+
+
+
+
+
+
+
+
+<!-- <%= form_tag("/home/create", {multipart: true}) do %>
     <div class="submit">
         <p>
             name
@@ -39,7 +55,7 @@
 
         <p><input class="submit_button" type="submit" value="post"></p>
     </div>
-<% end %>
+<% end %> -->
 
 
 

@@ -1,7 +1,7 @@
 class Post2 < ApplicationRecord
 
     has_secure_password
-
+    has_one_attached :image
 
 
     validates :content, {presence: true}

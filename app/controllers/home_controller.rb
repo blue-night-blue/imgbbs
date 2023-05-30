@@ -24,9 +24,15 @@ class HomeController < ApplicationController
     else
       get_post_id=1
     end
-
+    
+    # def create
+    #   @comment = Comment.create params.require(:comment).permit(:content, :image) # POINT
+    #   redirect_to @comment
+    # end 
+    
     @post=Post2.new(
       name:params[:name],
+      image:params[:image],
       content:params[:content],
       password:params[:password],
       post_id:get_post_id
@@ -41,16 +47,13 @@ class HomeController < ApplicationController
     end
     
     if @post.save
-
-      if params[:image]
-        image_name="imgbbs"+format("%004d", @post.id)+".jpg"
-        image=params[:image]
-        File.binwrite("public/post_images/#{image_name}",image.read)
-      end
-
+      # if params[:image]
+      #   image_name="imgbbs"+format("%004d", @post.id)+".jpg"
+      #   image=params[:image]
+      #   File.binwrite("public/post_images/#{image_name}",image.read)
+      # end
       flash[:notice]="投稿しました"
       redirect_to ("/")
-
     end
     
   end

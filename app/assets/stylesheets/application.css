@@ -53,17 +53,14 @@ input,textarea{
     border:var(--main-text-color) solid 1px;
     color:var(--main-text-color);
     border-radius: 5px;
-}
-
-.name,
-.content,
-.password{
     width:100%;
 }
 
-.submit_button{
+
+input[type="submit"]{
     padding: 10px 30px;
     font-size: 20px;
+    width:auto;
 }
 
 .submit_times{
