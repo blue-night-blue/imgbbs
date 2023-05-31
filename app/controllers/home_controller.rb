@@ -19,23 +19,14 @@ class HomeController < ApplicationController
     @post = Post2.new 
   end
 
-  def create2
-    @post = Post2.create params.require(:post2).permit(:content, :image)
-  end
 
   
   def create
-    # @post = Post2.create params.require(:post2s).permit(:name, :image, :content, :password)
-    # redirect_to ("/")
-
-
-    
     if Post2.count>0
       get_post_id=Post2.last.post_id+1
     else
       get_post_id=1
     end
-    
     
     @post=Post2.new(
       name:params[:name],
@@ -69,17 +60,11 @@ class HomeController < ApplicationController
   def update
     @post=Post2.find_by(id: params[:id])
     @post.name = params[:name]
+    @post.image = params[:image]
     @post.content = params[:content]
 
     if @post.authenticate(params[:password])
       @post.save
-
-      if params[:image]
-        image_name="imgbbs"+format("%004d", @post.id)+".jpg"
-        image=params[:image]
-        File.binwrite("public/post_images/#{image_name}",image.read)
-      end
-
       flash[:notice]="修正しました"
       redirect_to ("/")
     else
@@ -100,13 +85,13 @@ class HomeController < ApplicationController
     @post=Post2.find_by(id: params[:id])
 
     if @post.authenticate(params[:password])
-      @post.destroy
-      
-      #うまく行かんので一旦コメントアウト。パーミッション、渋い。
-      # if File.exist?("public/post_images/#{@image_name}")
-      #   File.delete("public/post_images/#{@image_name}")
-      # end
+      if @post.image.attached?
+        @post.image.purge && @post.destroy
+      else
+        @post.destroy
+      end
 
+      
       flash[:notice]="削除しました"
       redirect_to ("/")
     else

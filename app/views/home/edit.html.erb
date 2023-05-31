@@ -6,37 +6,15 @@
     </div> 
 <% end %>
 
-<%= form_tag("/#{@post.id}/update", {multipart: true})  do %>
-    <div class="submit">
-        <p>
-            name
-            <input class="name" name="name" type="text" value="<%= @post.name %>">
-        </p>
+<%= form_with url: "/#{@post.id}/update", local: true  do |form| %>
+    <p>name<%= form.text_field :name, :value=>@post.name %></p>
 
-        <p>
-            image
-            <input name="image" type="file">
-            <% image_name="imgbbs"+format("%004d", @post.id)+".jpg" %>
-            <% if File.exist?("public/post_images/#{image_name}") %>
-                <img src="/post_images/<%= image_name %>" alt="<%= image_name %>">
-            <% end %>
-        </p>
+    <p>image<%= form.file_field :image %></p>
+    <% if @post.image.attached? %>
+        <div class="post_image"><%= image_tag @post.image %></div>
+    <% end %>
 
-        
-
-        <p>
-            comment
-            <textarea class="content" name="content"><%= @post.content %></textarea>
-        </p>
-
-        <p>
-            password
-            <input class="password" name="password" type="password">
-        </p>
-
-        <p><input class="submit_button" type="submit" value="edit"></p>
-    </div>
+    <p>comment<%= form.text_area :content, :value=>@post.content %></p>
+    <p>password<%= form.password_field :password %></p>
+    <%= form.submit "post" %>
 <% end %>
-
-
-

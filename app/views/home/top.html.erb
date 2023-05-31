@@ -20,43 +20,9 @@
   <p>name<%= form.text_field :name %></p>
   <p>image<%= form.file_field :image %></p>
   <p>comment<%= form.text_area :content %></p>
-  <p>password<%= form.text_field :password %></p>
+  <p>password<%= form.password_field :password %></p>
   <%= form.submit "post" %>
 <% end %>
-
-
-
-
-
-
-
-
-<!-- <%= form_tag("/home/create", {multipart: true}) do %>
-    <div class="submit">
-        <p>
-            name
-            <input class="name" name="name" type="text" value="">
-        </p>
-
-        <p>
-            image
-            <input name="image" type="file">
-        </p>
-        
-        <p>
-            comment
-            <textarea class="content" name="content"></textarea>
-        </p>
-
-        <p>
-            password
-            <input class="password" name="password" type="password">
-        </p>
-
-        <p><input class="submit_button" type="submit" value="post"></p>
-    </div>
-<% end %> -->
-
 
 
 

@@ -10,11 +10,8 @@
             <div class="post_name">name:<%= post.name %></div>
             <div class="post_date">date:<%= post.created_at.strftime('%Y/%m/%d') %></div>
 
-            <% image_name="imgbbs"+format("%004d", post.id)+".jpg" %>
-            <% if File.exist?("public/post_images/#{image_name}") %>
-                <div class="post_image">
-                    <img src="/post_images/<%= image_name %>" alt="<%= image_name %>">
-                </div>
+            <% if post.image.attached? %>
+                <div class="post_image"><%= image_tag post.image %></div>
             <% end %>
 
             <div class="post_content"><%= simple_format(post.content) %></div>
