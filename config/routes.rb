@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get "/" => 'home#top'
+  get "home/new" => 'home#new'
 
   post "home/create" => 'home#create'
+  post "home/create2" => 'home#create2'
   post "home/times_post" => 'home#times_post'
   
   get ":id/edit" => 'home#edit'
