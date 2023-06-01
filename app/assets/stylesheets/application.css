@@ -145,6 +145,11 @@ li{
     margin:1em 0;
 }
 
+.like a{
+   text-decoration: none;
+}
+
+
 .edit_and_delete{
     text-align: right;
 }

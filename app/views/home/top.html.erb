@@ -52,6 +52,15 @@
             <% end %>
 
             <div class="post_content"><%= simple_format(post.content) %></div>
+
+            <div class="like">
+                <%= link_to ({ controller: "home", action: "like", id: post.id}),
+                data: { turbo_method: :post  } do %>
+                    <i class="fa-sharp fa-solid fa-thumbs-up"></i>
+                <% end %>
+                <%= post.like %> 
+            </div>
+
             <div class="edit_and_delete">
                 <%= link_to("edit",controller: "home", action: "edit", id: post.id) %>
                  / 

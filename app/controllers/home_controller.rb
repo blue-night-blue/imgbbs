@@ -103,6 +103,27 @@ class HomeController < ApplicationController
 
 
 
+  def like
+    @post=Post2.find_by(id: params[:id]) 
+
+    if @post.like==nil
+      @post.like=1
+    else
+      @post.like+=1
+    end
+      @post.save
+      flash[:notice]="親指立てました" 
+      redirect_to request.referer
+  end
+
+  
+  
+  
+  
+  
+  
+
+
 
 
   def page

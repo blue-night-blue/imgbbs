@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get ":id/delete" => 'home#delete'
   post ":id/destroy" => 'home#destroy'
 
+  post ":id/like" => 'home#like'
+
   get "page/1" => redirect("../")
   get "page/:id" => 'home#page'
   
