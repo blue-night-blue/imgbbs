@@ -10,6 +10,7 @@
 <div class="explanation">
     <ol>
         <li>名前を無記名にした場合、「名無し」という名前で投稿されます</li>
+        <li>タグは、半角のカンマ「,」で区切ると複数作れます</li>
         <li>パスワードを設定しておくと、投稿したものを編集・削除できます</li>
     </ol>
 </div>
@@ -20,6 +21,7 @@
   <p>name<%= form.text_field :name %></p>
   <p>image<%= form.file_field :image %></p>
   <p>comment<%= form.text_area :content %></p>
+  <p>tag<%= form.text_field :tag %></p>
   <p>password<%= form.password_field :password %></p>
   <%= form.submit "post" %>
 <% end %>
@@ -46,6 +48,9 @@
             <div class="post_number">number:<%= post.post_id %></div>
             <div class="post_name">name:<%= post.name %></div>
             <div class="post_date">date:<%= post.created_at.strftime('%Y/%m/%d') %></div>
+            <div class="post_tag">tag:
+                <%= post.tag.to_s.split(",") %> 
+            </div>
 
             <% if post.image.attached? %>
                 <div class="post_image"><%= image_tag post.image %></div>

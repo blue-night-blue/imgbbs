@@ -15,9 +15,6 @@ class HomeController < ApplicationController
 
   end
 
-  def new
-    @post = Post2.new 
-  end
 
 
   
@@ -32,6 +29,7 @@ class HomeController < ApplicationController
       name:params[:name],
       image:params[:image],
       content:params[:content],
+      tag:params[:tag],
       password:params[:password],
       post_id:get_post_id
       ) 
