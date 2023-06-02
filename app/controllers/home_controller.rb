@@ -60,6 +60,7 @@ class HomeController < ApplicationController
     @post.name = params[:name]
     @post.image = params[:image]
     @post.content = params[:content]
+    @post.tag = params[:tag]
 
     if @post.authenticate(params[:password])
       @post.save
