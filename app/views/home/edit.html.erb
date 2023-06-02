@@ -15,6 +15,7 @@
     <% end %>
 
     <p>comment<%= form.text_area :content, :value=>@post.content %></p>
+    <p>tag<%= form.text_field :tag, :value=>@post.tag %></p>
     <p>password<%= form.password_field :password %></p>
     <%= form.submit "post" %>
 <% end %>

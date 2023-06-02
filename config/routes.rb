@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post "home/create2" => 'home#create2'
   post "home/times_post" => 'home#times_post'
   
+  get ":id/tag" => 'home#tag'
+
   get ":id/edit" => 'home#edit'
   post ":id/update" => 'home#update'
 

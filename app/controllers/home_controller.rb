@@ -115,7 +115,11 @@ class HomeController < ApplicationController
   end
 
   
-  
+  def tag
+    @tag=params[:id]
+
+    @post=Post2.where("tag LIKE ?","%#{@tag}%").order(created_at: :desc) 
+  end 
   
   
   
