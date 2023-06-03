@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get "/" => 'home#top'
-  get "home/new" => 'home#new'
+
 
   post "home/create" => 'home#create'
   post "home/create2" => 'home#create2'
@@ -23,13 +23,15 @@ Rails.application.routes.draw do
 
   post ":id/like" => 'home#like'
 
+
   get "page/1" => redirect("../")
   get "page/:id" => 'home#page'
   
-  
-  
-  
-
-
+  #以下、テスト用
+  get "home/test" 
+  post "home/test"
+  get "home/test_new" 
+  post "home/test_new"
+  post "home/test_create"
 
 end

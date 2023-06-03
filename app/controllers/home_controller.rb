@@ -170,6 +170,48 @@ class HomeController < ApplicationController
   
 
 
+  def test
+    @post=Post2.all.order(created_at: :desc)
+  end
+  
+  def test_new
+    @post=Post2.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def test_create
+    @apples = Post2.all
+    @apple = Post2.new(apple_params)
+    respond_to do |format|
+      if @apple.save
+        format.html
+        format.js
+      else
+        format.js {render :new}
+      end
+    end
+  end
+ 
+  def apple_params
+    params.require(:apple).permit(:name)
+  end
+
+  
+  # def like_ajax
+  #   @post=Post2.find_by(id: params[:id]) 
+
+  #   if @post.like==nil
+  #     @post.like=1
+  #   else
+  #     @post.like+=1
+  #   end
+  #     @post.save
+  #     flash[:notice]="親指立てました" 
+  #     redirect_to request.referer
+  # end 
 
   
 
