@@ -1,11 +1,15 @@
 <h2>test</h2>
 
-
-
-<%= link_to "データを追加する", controller: "home", action: "test_new", remote: true  %>
-<div id="apple-form"></div>
-
-
-<%= render partial: 'apple' %>
-
+<script>
+  $(function() {
+    console.log('jQuery!');
+});
+</script>
+  
+<% @post.each do |post| %>
+  <div class="post">
+      <div id="test_like_<%= post.id %>">
+        <%= render "home/apple",post: post %>
+      </div>
+<% end %>
 

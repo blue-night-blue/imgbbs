@@ -145,7 +145,8 @@ li{
     margin:1em 0;
 }
 
-.like a{
+.like a,
+[id^="test_like"] a{
    text-decoration: none;
 }
 

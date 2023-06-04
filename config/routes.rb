@@ -30,8 +30,6 @@ Rails.application.routes.draw do
   #以下、テスト用
   get "home/test" 
   post "home/test"
-  get "home/test_new" 
-  post "home/test_new"
-  post "home/test_create"
+  post ":id/test_like" => 'home#test_like'
 
 end

@@ -1,9 +1,7 @@
-<div class="index">
-    
-    <% @post.each do |post| %>
-        <div class="post">
-            <div class="post_content"><%= simple_format(post.content) %></div>
-        </div>
-    <% end %>
 
-</div>
+<%= link_to ({ controller: "home", action: "test_like", id: post.id}),
+data: { turbo_method: :post  }, remote: true do %>
+    <i class="fa-sharp fa-solid fa-thumbs-up"></i>
+<% end %>
+
+<%= post.like %> 
