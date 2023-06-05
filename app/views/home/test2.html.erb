@@ -1,0 +1,23 @@
+<h2>test</h2>
+
+
+
+
+
+
+  <% @post.each do |post| %>
+
+  <%= turbo_frame_tag "apple2" do %> 
+
+    <%= render "apple2",post: post %>
+    <% end %>
+    
+  <% end %>
+
+
+
+
+
+
+
+

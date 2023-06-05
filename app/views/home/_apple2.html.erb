@@ -1,0 +1,8 @@
+
+
+<%= link_to ({ controller: "home", action: "test_like2", id:post.id}),
+    data: { turbo_method: :post  }, remote: true do %>
+      like
+    <% end %>
+<%= post.id %>:<%= post.like %>
+<br>

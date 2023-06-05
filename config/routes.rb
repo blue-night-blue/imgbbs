@@ -31,5 +31,8 @@ Rails.application.routes.draw do
   get "home/test" 
   post "home/test"
   post ":id/test_like" => 'home#test_like'
+  get "home/test2" 
+  post "home/test2"
+  post ":id/test_like2" => 'home#test_like2'
 
 end

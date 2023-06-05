@@ -110,9 +110,11 @@ class HomeController < ApplicationController
     else
       @post.like+=1
     end
-      @post.save
-      flash[:notice]="親指立てました" 
-      redirect_to request.referer
+
+    @post.save
+    flash[:notice]="親指立てました" 
+    redirect_to request.referer
+
   end
 
   
@@ -188,6 +190,33 @@ class HomeController < ApplicationController
   end 
 
   
+  
+
+  def test2
+    @post=Post2.all
+  end
+  
+  def test_like2
+    @post=Post2.find_by(id: params[:id]) 
+    
+    if @post.like==nil
+      @post.like=1
+    else
+      @post.like+=1
+    end
+
+    @post.save 
+    redirect_to "home/test2"
+
+    # if @post.save
+    #   format.turbo_stream { render turbo_stream: turbo_stream.prepend("apple2", partial: "home/test2", locals: { post: @post }) }
+    #   format.html { redirect_to "home/test2", notice: "Post was successfully created." }
+    # else
+    #   format.html { render "home/test2", status: :unprocessable_entity }
+    # end
+
+
+  end  
 
 
 end
