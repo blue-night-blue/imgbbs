@@ -1,24 +1,9 @@
-# README
+# 何これ
+シンプルな画像掲示板システム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 機能
+- 文章と画像を投稿できる。※画像はs3に送ってる
+- 投稿時、パスワードを設定しておくと後から編集や削除ができる　※パスワードはbcryptを使って暗号化
+- ページネーションを無理やり実装
+- いいねボタン　※押すとリダイレクトされちゃう（本当はajaxかturbo framesで連打できるようにしたかった）→次回作で改善
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
