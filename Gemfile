@@ -53,7 +53,7 @@ gem "bootsnap", require: false
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-
+gem "mysql2"
 
 #コメントアウトを外したやつ・修正したやつ
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]

@@ -39,7 +39,7 @@ class HomeController < ApplicationController
     end
 
     if params[:password] ==""
-      @post.password = "uganda"
+      @post.password = Rails.application.credentials.dig(:admin_password)
     end
     
     if @post.save
@@ -159,7 +159,7 @@ class HomeController < ApplicationController
       Post2.create(
         name:"連投砲",
         content:"連投その#{i}（全#{@times}）",
-        password:"rentou",
+        password:Rails.application.credentials.dig(:admin_password),
         post_id:get_post_id
       )
       get_post_id+=1
